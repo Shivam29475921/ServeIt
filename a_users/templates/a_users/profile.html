@@ -1,0 +1,23 @@
+{% extends 'layouts/blank.html' %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto flex flex-col items-center pt-20 px-4">
+    <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
+    <div class="text-center">
+        <h1>{{ profile.name }}</h1>
+        <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
+
+        {% if profile.user != user %}
+        <a class="button w-full" href="{% url 'start-chat' profile.user.username %}">Chat with me</a>
+        <form action="{% url 'transfer-coins' profile.user.username %}" method="get" class="mt-2">
+            <button type="submit" class="button w-full">Send Coins</button>
+        </form>
+        {% else %}
+        <h3>You currently have {{ profile.coin_balance }} coins left</h3>
+        <h5>Want more?Help people out!</h5>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
