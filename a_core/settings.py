@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['https://serveit-production.up.railway.app/*', 'localhost', '127.0.0.1', '*', 'https://*']
 
-CSRF_TRUSTED_ORIGINS = ['https://*', 'https://serveit-production.up.railway.app/*', '*']
+CSRF_TRUSTED_ORIGINS = ['https://*', 'https://serveit-production.up.railway.app/accounts/login/', '*']
 
 # Application definition
 
